@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Dil Ki Baat 💌</title>
+<style>
+:root{--bg1:#fff3e6;--bg2:#fbd0dc;--ink:#4d2432;--soft:#93576a;--acc:#e0405a;--gold:#f0b429;--card:#fffaf7;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg1:#1c1019;--bg2:#3b1a2e;--ink:#fde9ea;--soft:#e2aab8;--card:#2c1826}}
+:root[data-theme="dark"]{--bg1:#1c1019;--bg2:#3b1a2e;--ink:#fde9ea;--soft:#e2aab8;--card:#2c1826}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%;margin:0}
+body{background:linear-gradient(165deg,var(--bg1),var(--bg2));color:var(--ink);font-family:Georgia,'Times New Roman',serif;overflow:hidden;text-align:center}
+canvas{position:fixed;inset:0;pointer-events:none;z-index:5}
+.s{position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;padding:22px;gap:13px;overflow-y:auto;animation:in .7s both}
+.s.on{display:flex}
+@keyframes in{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+h1{font-size:28px;font-weight:normal;font-style:italic;margin:0;line-height:1.25}
+p{margin:0;font-size:18px;line-height:1.6;max-width:400px}
+.soft{color:var(--soft);font-size:15px}
+.btn{background:var(--acc);color:#fff;border:0;border-radius:30px;padding:13px 28px;font:inherit;font-size:17px;cursor:pointer;box-shadow:0 8px 20px rgba(224,64,90,.35);text-decoration:none;display:inline-block}
+.btn:active{transform:scale(.96)}
+.btn.o{background:transparent;color:var(--acc);border:2px solid var(--acc);box-shadow:none}
+.env{font-size:110px;cursor:pointer;animation:wob 1.6s infinite;user-select:none}
+@keyframes wob{0%,100%{transform:rotate(-5deg) scale(1)}50%{transform:rotate(5deg) scale(1.08)}}
+.pr{list-style:none;padding:0;margin:0;width:100%;max-width:380px;display:grid;gap:10px}
+.pr li{background:var(--card);border:2px solid var(--line,#ecc);border-radius:16px;padding:13px 16px;font-size:16.5px;text-align:left;cursor:pointer;display:flex;gap:12px;align-items:center;transition:.3s}
+.pr li i{font-style:normal;font-size:22px;filter:grayscale(1);opacity:.4;transition:.3s}
+.pr li.t{border-color:var(--gold)}
+.pr li.t i{filter:none;opacity:1}
+.moods{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;max-width:380px}
+.moods button{font-size:38px;background:var(--card);border:2px solid transparent;border-radius:18px;padding:8px 10px;cursor:pointer}
+.moods button.a{border-color:var(--acc);transform:scale(1.12)}
+#mr{min-height:80px;font-style:italic;font-size:19px}
+.opts{display:grid;gap:10px;width:100%;max-width:380px}
+.opts button{background:var(--card);border:2px solid var(--gold);border-radius:16px;padding:13px;font:inherit;font-size:17px;color:var(--ink);cursor:pointer}
+.opts button.a{background:var(--acc);color:#fff;border-color:var(--acc)}
+.dots{position:fixed;bottom:calc(10px + env(safe-area-inset-bottom,0px));left:0;right:0;display:flex;justify-content:center;gap:8px;z-index:4}
+.dots u{width:8px;height:8px;border-radius:50%;background:var(--soft);opacity:.35}
+.dots u.a{opacity:1;background:var(--acc)}
+.qc{background:var(--card);border:2px dashed var(--gold);border-radius:18px;padding:18px;min-height:96px;display:flex;align-items:center;justify-content:center;max-width:380px;width:100%;font-size:19px;font-style:italic}
+.sd{display:flex;flex-direction:column;gap:10px;align-items:center}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.row .btn{padding:12px 20px;font-size:16px}
+@media (prefers-reduced-motion:reduce){.env{animation:none}}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<section class="s on">
+  <p class="soft">Sirf Safeena ke liye 🤫</p>
+  <div class="env" id="env">💌</div>
+  <p class="soft">Khol ke dekho, jaan</p>
+</section>
+
+<section class="s">
+  <h1>Oye jaan 😄</h1>
+  <p>Ek chhoti si baat, koi tension nahi, koi complaint nahi.</p>
+  <p>Mujhe tumhari <b>saari</b> baatein sunna pasand hai. Funny, boring, gussa, sad, sab kuch. Jaise tum apni dosto ko batati ho na, waise mujhe bhi bata sakti ho. Main tumhara <b>best friend</b> bhi banna chahta hoon, sirf husband nahi 😌</p>
+  <button class="btn" data-n>Achha, phir?</button>
+</section>
+
+<section class="s">
+  <h1>Ameen ke 4 promises 🤞</h1>
+  <p class="soft">Har promise pe tap karo</p>
+  <ul class="pr" id="pr">
+    <li><i>🙅‍♂️</i>Main judge nahi karunga. Never.</li>
+    <li><i>😅</i>Bina pooche lecture nahi dunga.</li>
+    <li><i>🎧</i>Jab tak tum nahi kahogi, advice nahi. Sirf sunna.</li>
+    <li><i>🔒</i>Tumhari baat sirf hamare beech rahegi.</li>
+  </ul>
+  <button class="btn" id="pn" style="display:none" data-n>Theek hai, deal ✅</button>
+</section>
+
+<section class="s">
+  <h1>Aaj ka mood kaisa hai? 🌈</h1>
+  <div class="moods" id="md"><button>😄</button><button>🙂</button><button>😴</button><button>😔</button><button>😤</button></div>
+  <p id="mr" class="soft">Ek pe tap karo 👆</p>
+  <button class="btn" data-n>Aage</button>
+</section>
+
+<section class="s">
+  <h1>Ameen ko bataao, mujhe kya chahiye? 💬</h1>
+  <p class="soft">Koi pressure nahi. Jo sahi lage, wahi chuno.</p>
+  <div class="opts" id="op">
+    <button data-m="Aaj mujhe bas koi sunne wala chahiye. Sunoge? 🎧">🎧 Bas suno, kuch mat bolna</button>
+    <button data-m="Mujhe ek baat batani hai aur teri advice chahiye 💡">💡 Advice chahiye</button>
+    <button data-m="Mujhe hasa do please, mood thoda off hai 😂">😂 Mujhe hasa do</button>
+    <button data-m="Bas ek tight hug chahiye abhi 🫂">🫂 Bas ek hug</button>
+    <button data-m="Abhi kuch bolna nahi hai, par tumse baat karna achha lagta hai ❤️">🌙 Abhi kuch nahi, bas hi</button>
+  </div>
+  <div class="sd" id="sd" style="display:none">
+    <p class="soft">Ameen ko kahan bhejogi? 💌</p>
+    <div class="row">
+      <a class="btn" id="wa" href="#" target="_blank" rel="noopener">💬 WhatsApp</a>
+      <button class="btn" id="sc" style="background:#f7d400;color:#222;box-shadow:0 8px 20px rgba(247,212,0,.4)">👻 Snapchat</button>
+    </div>
+    <div class="row">
+      <button class="btn o" id="sh">📤 Aur apps</button>
+      <button class="btn o" id="cp">📋 Copy</button>
+    </div>
+    <p class="soft" id="tt"></p>
+  </div>
+  <button class="btn o" data-n>Baad mein, aage chalo</button>
+</section>
+
+<section class="s">
+  <h1>Dil ki baat jar 🫙</h1>
+  <p class="soft">Jab bhi mann kare, ek pe tap karo. Jawab dena optional hai 😜</p>
+  <div class="qc" id="qc">Tap karo, ek sawaal niklega ✨</div>
+  <button class="btn" id="qb">Ek aur sawaal 🎲</button>
+  <button class="btn o" data-n>Khatam karte hain</button>
+</section>
+
+<section class="s">
+  <h1>Kabhi bhi. Kuch bhi. 🤍</h1>
+  <p>Raat ke 2 baje ho ya subah ka chai time, agar tumhe kuch bolna hai, rona hai, hasna hai ya bakwaas karni hai… <b>main yahin hoon.</b></p>
+  <p>Tum meri jaan bhi ho aur meri best friend bhi.</p>
+  <h1 style="font-size:30px;color:var(--acc)">Mai tumse bahut pyaar karta hoon ❤️</h1>
+  <p class="soft">— Ameen</p>
+  <button class="btn o" id="rp">Phir se khelo 🎉</button>
+</section>
+
+<div class="dots" id="dots"></div>
+
+<script>
+(function(){
+var cv=document.getElementById('c'),cx=cv.getContext('2d'),P=[],W,H,run=false;
+function rs(){W=cv.width=innerWidth;H=cv.height=innerHeight}rs();addEventListener('resize',rs);
+var cols=['#e0405a','#f0b429','#ff8fa3','#7bd389','#6ab7ff','#c58bff'];
+function burst(x,y,n){for(var i=0;i<(n||60);i++){var a=Math.random()*6.28,v=3+Math.random()*7;P.push({x:x,y:y,vx:Math.cos(a)*v,vy:Math.sin(a)*v-4,s:4+Math.random()*6,c:cols[i%6],l:90+Math.random()*50,r:Math.random()*6})}if(!run)loop()}
+function loop(){run=true;cx.clearRect(0,0,W,H);P=P.filter(function(p){return p.l>0});P.forEach(function(p){p.x+=p.vx;p.y+=p.vy;p.vy+=.16;p.vx*=.99;p.l--;p.r+=.2;cx.save();cx.globalAlpha=Math.min(1,p.l/30);cx.translate(p.x,p.y);cx.rotate(p.r);cx.fillStyle=p.c;cx.fillRect(-p.s/2,-p.s/3,p.s,p.s*.6);cx.restore()});if(P.length)requestAnimationFrame(loop);else{run=false;cx.clearRect(0,0,W,H)}}
+var S=[].slice.call(document.querySelectorAll('.s')),cur=0,dots=document.getElementById('dots');
+S.forEach(function(){dots.appendChild(document.createElement('u'))});
+function go(i){S[cur].classList.remove('on');cur=i;S[cur].classList.add('on');[].forEach.call(dots.children,function(d,k){d.className=k===cur?'a':''});if(i===6)burst(W/2,H*.3,110)}
+go(0);
+[].forEach.call(document.querySelectorAll('[data-n]'),function(b){b.onclick=function(){go(cur+1)}});
+document.getElementById('env').onclick=function(e){burst(e.clientX,e.clientY,90);setTimeout(function(){go(1)},600)};
+var lis=document.querySelectorAll('#pr li'),tc=0;
+[].forEach.call(lis,function(li){li.onclick=function(e){if(li.classList.contains('t'))return;li.classList.add('t');tc++;burst(e.clientX,e.clientY,25);if(tc===4)document.getElementById('pn').style.display='inline-block'}});
+var rep={'😄':'Yay! Aaj toh party banti hai 🥳 Mujhe bhi bataao kya hua!','🙂':'Achha hai! Chhoti khushiyan bhi badi hoti hain 🌼','😴':'Aww, so jao thoda. Main chai bana deta hoon ☕','😔':'Aaja idhar, virtual hug 🫂 Jab mann kare tab bata dena, main yahin hoon.','😤':'Gussa aa raha hai? Sab bahar nikal do, main sun raha hoon 🎧 No judgement.'};
+var mb=document.querySelectorAll('#md button'),mr=document.getElementById('mr');
+[].forEach.call(mb,function(b){b.onclick=function(e){[].forEach.call(mb,function(x){x.className=''});b.className='a';mr.textContent=rep[b.textContent];mr.className='';burst(e.clientX,e.clientY,20)}});
+var ob=document.querySelectorAll('#op button'),wa=document.getElementById('wa'),sd=document.getElementById('sd'),tt=document.getElementById('tt'),msg='';
+function cpy(t,ok){function fb(){var a=document.createElement('textarea');a.value=t;a.style.position='fixed';a.style.opacity='0';document.body.appendChild(a);a.select();try{document.execCommand('copy')}catch(x){}document.body.removeChild(a);ok()}
+ if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(t).then(ok,fb)}else fb()}
+[].forEach.call(ob,function(b){b.onclick=function(e){[].forEach.call(ob,function(x){x.className=''});b.className='a';msg=b.getAttribute('data-m');wa.href='https://wa.me/?text='+encodeURIComponent(msg);sd.style.display='flex';tt.textContent='';burst(e.clientX,e.clientY,20)}});
+document.getElementById('sc').onclick=function(){cpy(msg,function(){tt.textContent='Message copy ho gaya ✅ Snapchat mein Ameen ke chat mein paste kar do';setTimeout(function(){location.href='snapchat://'},900)})};
+document.getElementById('cp').onclick=function(){cpy(msg,function(){tt.textContent='Copy ho gaya ✅ Ab kisi bhi app mein paste kar do'})};
+document.getElementById('sh').onclick=function(){if(navigator.share){navigator.share({text:msg}).catch(function(){})}else{cpy(msg,function(){tt.textContent='Share yahan nahi chal raha, message copy kar diya ✅ Kisi bhi app mein paste kar do'})}};
+var Q=['Aaj ki sabse achhi baat kya thi? 🌟','Ek cheez jo tumhe mujhse kehni hai par sharm aati hai? (Optional 😄)','Agar kal ek din ke liye kuch bhi kar sakti, toh kya karti? ✨','Kaun sa gaana abhi tumhare dimaag mein chal raha hai? 🎶','Meri sabse annoying aadat kaun si hai? Sach sach 😜','Aaj ka sabse funny ya awkward moment? 😂','Tum mujhse kaisa support chahti ho jab mood off ho? 🫶','Hum pehli trip kahan jayenge? Ek jagah bolo 🌍','Tumhari koi chhoti si tension hai jo bataana chahti ho? Main sun raha hoon 🤍'];
+var qc=document.getElementById('qc'),qi=-1;
+document.getElementById('qb').onclick=function(e){var n;do{n=Math.floor(Math.random()*Q.length)}while(n===qi);qi=n;qc.textContent=Q[n];burst(e.clientX,e.clientY,25)};
+document.getElementById('rp').onclick=function(){tc=0;[].forEach.call(lis,function(l){l.classList.remove('t')});document.getElementById('pn').style.display='none';sd.style.display='none';[].forEach.call(ob,function(x){x.className=''});[].forEach.call(mb,function(x){x.className=''});mr.textContent='Ek pe tap karo 👆';go(0)};
+})();
+</script>
+</body>
+</html>
